@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15.2-alpine
+    restart: always
+    container_name: next-starter
+    ports:
+      - '5434:5432'
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: next-starter
+    networks:
+      - database
+
+networks:
+  database:
